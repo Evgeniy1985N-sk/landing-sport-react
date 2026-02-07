@@ -6,6 +6,7 @@
   --color-1: #FDB056;
   --px: 16px;
   --width: calc(1216px + 2 * var(--px) );
+  --font-gilroy: 'Gilroy', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,6 +34,41 @@ main {
 }
 
 .font-raleway {
-  font-family: var(--font-raleway);
-  
+  font-family: var(--font-raleway), Arial, Helvetica, sans-serif;
+  font-feature-settings: "lnum", "tnum";
+}
+
+.font-gilroy {
+  font-family: var(--font-gilroy), Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy/Gilroy-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy/Gilroy-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy/Gilroy-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy/Gilroy-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
