@@ -2,8 +2,18 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Card from "@/components/Card";
 import Header from "@/components/Header";
+import { CardData } from "./types/cardData";
 
-export default function Home() {
+async function fetchCards(): Promise<CardData[]> {
+  const res = await fetch('https://t-core.fit-hub.pro/Test/GetTariffs')
+  return res.json()
+}
+
+
+export default async function Home() {
+  const cards = await fetchCards()
+  console.log('cards', cards)
+
   return (
     <>
       <Header />
@@ -17,11 +27,18 @@ export default function Home() {
           <div className="flex justify-between items-center gap-10">
             <Image src={'/image/man.png'} width={381} height={767} alt="Мужчина спортивного телосложения" />
 
-            <div className="grid grid-cols-3 gap-3.5 max-w-187 w-full">
-              <Card classCard="col-span-3 flex" />
-              <Card />
-              <Card />
-              <Card />
+            <div className="flex flex-wrap flex-row-reverse gap-3.5 max-w-187 w-full">
+
+              {cards.map((item, i) => {
+                return (
+                  <Card
+                    card={item}
+                    classCard={item.is_best ? 'w-full -order-1' : 'w-[calc((100%-1.75rem)/3)]'}
+                    key={i}
+                  />
+                )
+              })}
+              
             </div>
 
           </div>
