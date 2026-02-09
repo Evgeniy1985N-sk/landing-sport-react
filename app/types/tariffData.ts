@@ -1,4 +1,4 @@
-export interface CardData {
+export interface TariffData {
   id: string
   period: string
   price: number

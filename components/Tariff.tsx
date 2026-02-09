@@ -1,17 +1,23 @@
-import { CardData } from "@/app/types/cardData"
+'use client'
+
+import { TariffData } from "@/app/types/tariffData"
 
 interface Props {
-  card: CardData
+  card: TariffData
   classCard?: string
+  onClick: (card: TariffData) => void
 }
 
+export default function Tariff({ card, classCard, onClick }: Props) {
 
+  const handleClick = () => {
+   onClick(card)
+  }
 
-export default function Card({ card, classCard }: Props) {
   return (
 
     /* CARD */
-    <div className={`${classCard} ${card.is_best ? 'flex gap-10 items-center justify-center pt-8.5' : 'pt-17.5'} relative pb-8 px-4.5 bg-[#313637] rounded-[40px] border border-[#484D4E] cursor-pointer`}>
+    <div onClick={handleClick} className={`${classCard} ${card.is_best ? 'flex gap-10 items-center justify-center pt-8.5' : 'pt-17.5'} relative pb-8 px-4.5 bg-[#313637] rounded-[40px] border border-[#484D4E] cursor-pointer`}>
 
       {/* DISCOUNT */}
       <div className="absolute top-0 left-12.5 py-1 px-2 bg-[#FD5656] rounded-b-lg">
