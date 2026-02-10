@@ -1,11 +1,13 @@
 'use client'
 
+import { TariffWithActive } from "./types/tariffData";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Tariff from "@/components/Tariff";
 import Header from "@/components/Header";
-import { TariffWithActive } from "./types/tariffData";
-import { useEffect, useState } from "react";
+import Benefit from "@/components/Benfit"
+
 
 export default function Home() {
   const [tariffs, setTariffs] = useState<TariffWithActive[]>([])
@@ -65,6 +67,8 @@ export default function Home() {
                   )
                 })}
               </div>
+
+              <Benefit />
 
             </form>
 
