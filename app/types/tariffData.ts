@@ -6,3 +6,7 @@ export interface TariffData {
   is_best: boolean
   text: string
 }
+
+export interface TariffWithActive extends TariffData {
+  isActive: boolean
+}

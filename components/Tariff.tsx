@@ -1,23 +1,22 @@
 'use client'
 
-import { TariffData } from "@/app/types/tariffData"
+import { TariffWithActive } from "@/app/types/tariffData"
 
 interface Props {
-  card: TariffData
-  classCard?: string
-  onClick: (card: TariffData) => void
+  card: TariffWithActive
+  onClick: (event: React.MouseEvent) => void
 }
 
-export default function Tariff({ card, classCard, onClick }: Props) {
-
-  const handleClick = () => {
-   onClick(card)
-  }
+export default function Tariff({ card, onClick }: Props) {
+  const baseClass = 'relative pb-8 px-4.5 bg-[#313637] rounded-[40px] border-2 hover:bg-[#3a4041] hover:shadow-[0_0_15px_rgba(253,176,86,0.4)] cursor-pointer transition'
+  const activeClass = `${card.isActive ? ' border-[#FDB056]' : ' border-[#484D4E]'}`
+  const bestClass = `${card.is_best ? 'flex gap-10 items-center justify-center w-full -order-1 pt-8.5' : 'w-[calc((100%-1.75rem)/3)] pt-17.5'}`
+  const priceClass = `${card.isActive ? 'text-(--color-1)' : 'text-white'} text-center text-[50px] leading-[100%] font-semibold transition-colors`
 
   return (
 
     /* CARD */
-    <div onClick={handleClick} className={`${classCard} ${card.is_best ? 'flex gap-10 items-center justify-center pt-8.5' : 'pt-17.5'} relative pb-8 px-4.5 bg-[#313637] rounded-[40px] border border-[#484D4E] cursor-pointer`}>
+    <div onClick={onClick} className={`${activeClass} ${bestClass} ${baseClass}`}>
 
       {/* DISCOUNT */}
       <div className="absolute top-0 left-12.5 py-1 px-2 bg-[#FD5656] rounded-b-lg">
@@ -34,8 +33,7 @@ export default function Tariff({ card, classCard, onClick }: Props) {
             хит!
           </span>
         </div>
-      )
-      }
+      )}
       {/* HIT */}
 
       {/* WRAPPER */}
@@ -49,7 +47,7 @@ export default function Tariff({ card, classCard, onClick }: Props) {
 
         {/* PRICE */}
         <div className={`flex flex-col justify-center w-fit`}>
-          <p className={`${card.is_best ? 'text-(--color-1)' : 'text-white'} text-center text-[50px] leading-[100%] font-semibold`}>
+          <p className={`${priceClass}`}>
             {card?.price} ₽
           </p>
           <span className="text-right text-[24px] leading-[120%] line-through text-[#919191]">
