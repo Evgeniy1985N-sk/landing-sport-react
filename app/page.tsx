@@ -7,6 +7,7 @@ import Container from "@/components/ui/Container";
 import Tariff from "@/components/Tariff";
 import Header from "@/components/Header";
 import Benefit from "@/components/Benfit"
+import CheckBox from "@/components/Checkbox"
 
 
 export default function Home() {
@@ -69,6 +70,8 @@ export default function Home() {
               </div>
 
               <Benefit />
+
+              <CheckBox />
 
             </form>
 
