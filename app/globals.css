@@ -4,6 +4,8 @@
   --background: #ffffff;
   --foreground: #171717;
   --color-1: #FDB056;
+  --color-2: #81FE95;
+  --color-3: #2D3233;
   --px: 16px;
   --width: calc(1216px + 2 * var(--px) );
   --font-gilroy: 'Gilroy', sans-serif;
