@@ -1,4 +1,4 @@
-export default function Footer() {
+export default function Guarantee() {
   return (
     <div className="grid gap-7.5 mt-16.5 p-5 border border-[#484D4E] rounded-[30px]">
 

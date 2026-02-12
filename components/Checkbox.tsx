@@ -16,7 +16,7 @@ export default function Checkbox() {
           isChecked && <Check />
         }
       </span>
-      <span className="text-[#CDCDCD]">Я согласен с <Link className="underline" href="/">офертой рекуррентных платежей</Link> и <Link className="underline" href="/">Политикой конфиденциальности</Link></span>
+      <span className="text-[#CDCDCD]">Я согласен с <Link className="border-b border-white" href="/">офертой рекуррентных платежей</Link> и <Link className="border-b border-white" href="/">Политикой конфиденциальности</Link></span>
     </label>
   )
 }

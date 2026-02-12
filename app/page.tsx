@@ -4,7 +4,7 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Header from "@/components/Header";
 import Form from '@/components/Form'
-import Footer from '@/components/Footer'
+import Guarantee from '@/components/Guarantee'
 
 export default function Home() {
 
@@ -26,7 +26,7 @@ export default function Home() {
 
           </div>
 
-          <Footer />
+          <Guarantee />
 
         </Container>
       </main>
