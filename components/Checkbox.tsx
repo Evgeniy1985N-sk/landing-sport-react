@@ -1,11 +1,11 @@
-import { useState } from "react"
+import { ChangeEvent, useState } from "react"
 import Link from 'next/link'
 import Check from "@/components/icon/Check"
 
 
 export default function Checkbox() {
   const [isChecked, setIsChecked] = useState(false)
-  function handleChange(e) {
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setIsChecked(e.target.checked)
   }
   return (
