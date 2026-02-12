@@ -4,11 +4,10 @@ import Star from "@/components/icon/Star";
 export default function CountDownDisplay() {
   const [minutes, seconds] = useCountDown();
 
-  // Форматируем минуты и секунды с ведущим нулем
   const formattedMinutes = String(minutes).padStart(2, '0');
   const formattedSeconds = String(seconds).padStart(2, '0');
 
-  const wrapperClass = `${minutes === 0 && seconds <= 30 ? 'blinking-timer text-[#FF4E4E]' : ' text-[#FFBB00]'} ${minutes === 0 && seconds === 0 ? '!animate-none text-[#FFF]' : ''}`
+  const wrapperClass = `${minutes === 0 && seconds <= 30 ? 'animate-pulse text-[#FF4E4E]' : ' text-[#FFBB00]'} ${minutes === 0 && seconds === 0 ? '!animate-none text-[#FFF]' : ''}`
   const textClass = 'flex justify-center gap-2 min-w-30.5 font-raleway text-[40px] font-bold'
 
   return (

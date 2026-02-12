@@ -3,12 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --color-1: #FDB056;
-  --color-2: #81FE95;
-  --color-3: #2D3233;
+  --color-1: #fdb056;
+  --color-2: #81fe95;
+  --color-3: #2d3233;
   --px: 16px;
-  --width: calc(1216px + 2 * var(--px) );
-  --font-gilroy: 'Gilroy', sans-serif;
+  --width: calc(1216px + 2 * var(--px));
+  --font-gilroy: "Gilroy", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,7 +18,8 @@
   }
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -45,50 +46,61 @@ main {
 }
 
 @font-face {
-  font-family: 'Gilroy';
-  src: url('/fonts/Gilroy/Gilroy-Regular.woff') format('woff');
+  font-family: "Gilroy";
+  src: url("/fonts/Gilroy/Gilroy-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Gilroy';
-  src: url('/fonts/Gilroy/Gilroy-Regular.woff') format('woff');
+  font-family: "Gilroy";
+  src: url("/fonts/Gilroy/Gilroy-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Gilroy';
-  src: url('/fonts/Gilroy/Gilroy-Medium.woff') format('woff');
+  font-family: "Gilroy";
+  src: url("/fonts/Gilroy/Gilroy-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Gilroy';
-  src: url('/fonts/Gilroy/Gilroy-Bold.woff') format('woff');
+  font-family: "Gilroy";
+  src: url("/fonts/Gilroy/Gilroy-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
-@keyframes softBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
-}
-
-.blinking-button {
-  animation: softBlink 2s infinite ease-in-out;
-}
-
-.blinking-timer {
-  animation: softBlink 1s infinite ease-in-out;
-}
-
 .blinking-button:hover {
   animation: none;
   opacity: 1;
+}
+.animate-zoom-in {
+  animation: zoomIn 1s 0s forwards;
+  transform: scale(0);
+}
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.animate-zoom-out {
+  animation: zoomOut 1s 0s forwards;
+  transform: scale(1);
+}
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
 }

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 
 const useCountDown = () => {
-  const INITIAL_TIME = .6 * 60 * 1000; // 180000 ms
+  const time = 2 * 60 * 1000;
   
-  const [countDown, setCountDown] = useState(INITIAL_TIME);
+  const [countDown, setCountDown] = useState(time);
 
   useEffect(() => {
     if (countDown <= 0) return;

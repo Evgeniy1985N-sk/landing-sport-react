@@ -1,6 +1,7 @@
 'use client'
 
-import { TariffWithActive } from "@/app/types/tariffData"
+import { TariffWithActive } from "@/types/tariffData"
+import { useCountDown } from "@/hooks/useCountDown"
 
 interface Props {
   card: TariffWithActive
@@ -8,10 +9,13 @@ interface Props {
 }
 
 export default function Tariff({ card, onClick }: Props) {
+  const [minutes, seconds] = useCountDown()
+  const isTimeOver = minutes === 0 && seconds === 0
+
   const baseClass = 'relative pb-8 px-4.5 bg-[#313637] rounded-[40px] border-2 hover:bg-[#3a4041] hover:shadow-[0_0_15px_rgba(253,176,86,0.4)] cursor-pointer transition'
   const activeClass = `${card.isActive ? ' border-[#FDB056]' : ' border-[#484D4E]'}`
-  const bestClass = `${card.is_best ? 'flex gap-10 items-center justify-center w-full -order-1 pt-8.5' : 'w-[calc((100%-1.75rem)/3)] pt-17.5'}`
-  const priceClass = `${card.isActive ? 'text-(--color-1)' : 'text-white'} text-center text-[50px] leading-[100%] font-semibold transition-colors`
+  const bestClass = `${card.is_best ? 'flex gap-6 items-center justify-center w-full -order-1 pt-8.5' : 'w-[calc((100%-1.75rem)/3)] pt-17.5'}`
+  const priceClass = `${card.isActive ? 'text-(--color-1)' : 'text-white'} min-w-[220px] text-center text-[50px] leading-[100%] font-semibold transition-colors`
 
   return (
 
@@ -48,9 +52,21 @@ export default function Tariff({ card, onClick }: Props) {
         {/* PRICE */}
         <div className={`flex flex-col justify-center w-fit`}>
           <p className={`${priceClass}`}>
-            {card?.price} ₽
+            {
+              !isTimeOver && (
+                card?.price + '₽'
+              )
+            }
+
+            {
+              isTimeOver && (
+                <span className='block animate-zoom-in'>
+                  { `${card?.full_price} ₽` }
+                </span>
+              )
+            }
           </p>
-          <span className="text-right text-[24px] leading-[120%] line-through text-[#919191]">
+          <span className={`${isTimeOver ? 'animate-zoom-out' : ''} text-right text-[24px] leading-[120%] line-through text-[#919191]`}>
             {card?.full_price} ₽
           </span>
         </div>
