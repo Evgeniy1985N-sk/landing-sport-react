@@ -30,7 +30,7 @@ export default function Form() {
   return (
     <form className="max-w-187 w-full">
 
-      <div className="flex flex-wrap flex-row-reverse gap-3.5">
+      <div className="flex flex-wrap flex-col-reverse sm:flex-row-reverse gap-1.5 xs:gap-2 sm:gap-3.5">
         {tariffs.map((item, i) => {
           return (
             <Tariff
