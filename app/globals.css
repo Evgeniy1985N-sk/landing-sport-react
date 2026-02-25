@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #232829;
+  --foreground: #fff;
+
   --color-1: #fdb056;
   --color-2: #81fe95;
   --color-3: #2d3233;
-  
+
   --px: 16px;
   --width: calc(1216px + 2 * var(--px));
   --font-gilroy: "Gilroy", sans-serif;
