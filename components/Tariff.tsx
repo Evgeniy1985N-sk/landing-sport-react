@@ -15,9 +15,9 @@ export default function Tariff({ card, onClick }: Props) {
   const baseClass = 'relative flex items-center sm:justify-between gap-[7px] xs:gap-[20px] sm:flex-col p-5 sm:pb-8 sm:px-4.5 bg-[#313637] rounded-[20px] sm:rounded-[40px] border-2 hover:bg-[#3a4041] hover:shadow-[0_0_15px_rgba(253,176,86,0.4)] cursor-pointer transition'
   const activeClass = `${card.isActive ? ' border-[#FDB056]' : ' border-[#484D4E]'}`
   const bestClass = `${card.is_best ? 'flex sm:gap-10 sm:flex-row gap-6 sm:items-center sm:justify-center w-full sm:-order-1 sm:pt-8.5' : 'w-full sm:w-[calc((100%-1.75rem)/3)] sm:pt-17.5'}`
-  
+
   const priceClass = `${card.is_best ? 'sm:min-w-[220px]' : ''} ${card.isActive ? 'text-(--color-1)' : 'text-white'} text-center text-[30px] xs:text-[34px] sm:text-[50px] leading-[100%] font-semibold transition-colors`
-  
+
   const discountBestClass = `${card.is_best ? 'right-[50px] xs:right-[62px]' : 'right-6.5'}`
 
   return (
@@ -26,11 +26,15 @@ export default function Tariff({ card, onClick }: Props) {
     <div onClick={onClick} className={`${activeClass} ${bestClass} ${baseClass}`}>
 
       {/* DISCOUNT */}
-      <div className={`${discountBestClass} absolute top-0 flex items-center justify-center w-fit h-5.75 xs:h-6.75 sm:h-9.75 sm:left-12.5 py-0.75 px-1.5 sm:py-1 sm:px-2 bg-[#FD5656] rounded-b-lg`}>
-        <span className="font-gilroy text-[13px] xs:text-base sm:text-[22px] leading-3 sm:leading-[130%] font-medium">
-          {-Math.round(((card.full_price - card.price) / card?.full_price) * 100)}%
-        </span>
-      </div>
+      {
+        !isTimeOver && (
+          <div className={`${discountBestClass} absolute top-0 flex items-center justify-center w-fit h-5.75 xs:h-6.75 sm:h-9.75 sm:left-12.5 py-0.75 px-1.5 sm:py-1 sm:px-2 bg-[#FD5656] rounded-b-lg`}>
+            <span className="font-gilroy text-[13px] xs:text-base sm:text-[22px] leading-3 sm:leading-[130%] font-medium">
+              {-Math.round(((card.full_price - card.price) / card?.full_price) * 100)}%
+            </span>
+          </div>
+        )
+      }
       {/* DISCOUNT */}
 
       {/* HIT */}
