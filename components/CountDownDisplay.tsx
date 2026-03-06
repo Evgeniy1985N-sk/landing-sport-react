@@ -1,3 +1,4 @@
+'use client';
 import { useCountDown } from "@/hooks/useCountDown";
 import Star from "@/components/icon/Star";
 

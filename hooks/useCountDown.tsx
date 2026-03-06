@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useEffect } from 'react';
 
 const useCountDown = () => {
@@ -16,7 +18,7 @@ const useCountDown = () => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [countDown]);
+  }, []);
 
   return getReturnValues(countDown);
 };
